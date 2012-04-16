@@ -3,6 +3,7 @@ fs         = require 'fs'
 
 appFiles  = [
   'coffeescript/1.coffee'
+  'coffeescript/2.coffee'
   'test/euler.coffee'
 ]
 
