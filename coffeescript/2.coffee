@@ -5,13 +5,12 @@
 # By considering the terms in the Fibonacci sequence whose values do not exceed four million, find the sum of the even-valued terms.
 
 solutionTwo = ->
-	
+
 	fibonacci = (n) -> if n <2 then 1 else fibonacci(n-1) + fibonacci(n-2)
-	isEven = (n) -> n % 2 == 0
-	total = 0
-	count = 0
-	while total < 4000000
-		result = fibonacci(count)
-		count++
-		if isEven result then total = total + result
+	evenFib = (n) -> 
+		x = fibonacci(n)
+		if x%2==0 then x else 0
+
+	total = count = 0
+	total += evenFib(count++) while total < 4000000
 	total
