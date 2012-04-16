@@ -6,6 +6,11 @@ Using Qunit to verify results.
 
 ## To see these running, or try and do ones i've missed out..
 - Clone this repo
+- cd test
+- mkdir qunit
+- cd qunit
+- curl -O https://raw.github.com/jquery/qunit/master/qunit/qunit.js
+- curl -O https://raw.github.com/jquery/qunit/master/qunit/qunit.css
 - Run "cake build"
 - Open "index.html"
 - Add tests in test/euler.coffee
