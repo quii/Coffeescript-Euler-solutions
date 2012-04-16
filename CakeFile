@@ -1,0 +1,27 @@
+fs         = require 'fs'
+{exec}     = require 'child_process'
+
+appFiles  = [
+  'coffeescript/1.coffee'
+  'test/euler.coffee'
+]
+
+task 'build', 'Build single application file from source files', ->
+  appContents = new Array 
+  remaining = appFiles.length
+  for file, index in appFiles then do (file, index) ->
+    fs.readFile file, 'utf8', (err, fileContents) ->
+      throw err if err
+      appContents[index] = fileContents
+      process() if --remaining is 0
+  process = ->
+    fs.writeFile 'javascript/app.coffee', appContents.join('\n\n'), 'utf8', (err) ->
+      throw err if err
+      exec 'coffee --compile javascript/app.coffee', (err, stdout, stderr) ->
+        if err
+          console.log 'Error compiling coffee file.'
+        else
+          fs.unlink 'javascript/app.coffee', (err) ->
+            if err
+              console.log 'Couldn\'t delete the app.coffee file/'
+            console.log 'Done building coffee file.'

@@ -1,0 +1,1 @@
+solutionOne = -> [0..999].reduce (x, y) -> if y%3==0 or y%5==0 then x+y else x+0
