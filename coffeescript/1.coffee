@@ -2,4 +2,4 @@
 
 # Find the sum of all the multiples of 3 or 5 below 1000.
 
-solutionOne = -> [0..999].reduce (x, y) -> if y%3==0 or y%5==0 then x+y else x+0
+solution1 = -> [0..999].reduce (x, y) -> if y%3==0 or y%5==0 then x+y else x
